@@ -1,6 +1,7 @@
 <?php
 $page_title = 'AI Barista';
-require_once 'includes/header.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="page-header">
@@ -48,4 +49,4 @@ require_once 'includes/header.php';
 </section>
 
 <script src="<?php echo BASE_URL; ?>/js/ai-chat.js"></script>
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
