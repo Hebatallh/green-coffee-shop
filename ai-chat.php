@@ -39,7 +39,7 @@ require_once 'includes/header.php';
             <div class="d-flex flex-wrap gap-2">
                 <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">What's your strongest coffee?</button>
                 <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">I like sweet drinks</button>
-                <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">What's the difference between latte and cappuccino?</button>
+                <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">Difference between latte and cappuccino?</button>
                 <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">Best drink for cold weather?</button>
                 <button class="btn btn-sm btn-outline-secondary rounded-pill" onclick="quickAsk(this)">Do you have dairy-free options?</button>
             </div>
@@ -47,5 +47,5 @@ require_once 'includes/header.php';
     </div>
 </section>
 
-<script src="/green-coffee-shop/js/ai-chat.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/ai-chat.js"></script>
 <?php require_once 'includes/footer.php'; ?>
