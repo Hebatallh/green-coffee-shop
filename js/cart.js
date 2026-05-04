@@ -4,19 +4,15 @@ function renderCart() {
     const cart = JSON.parse(localStorage.getItem('gcCart') || '[]');
     const container = document.getElementById('cartItems');
     const empty = document.getElementById('emptyCart');
-    const summary = document.getElementById('orderSummary');
-
     if (!container) return;
-
     if (cart.length === 0) {
         container.innerHTML = '';
         if (empty) empty.style.display = 'block';
         return;
     }
     if (empty) empty.style.display = 'none';
-
     container.innerHTML = cart.map(item => `
-        <div class="cart-item" id="item-${item.id}">
+        <div class="cart-item">
             <img src="${item.image}" alt="${item.name}" onerror="this.src='https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200'">
             <div class="flex-grow-1">
                 <div class="cart-item-name">${item.name}</div>
@@ -33,7 +29,6 @@ function renderCart() {
             </button>
         </div>
     `).join('');
-
     updateSummary(cart);
     updateCartBadge();
 }
@@ -58,10 +53,9 @@ function removeItem(id) {
 function updateSummary(cart) {
     const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
     const tax = subtotal * 0.15;
-    const total = subtotal + tax;
     document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
     document.getElementById('tax').textContent = '$' + tax.toFixed(2);
-    document.getElementById('total').textContent = '$' + total.toFixed(2);
+    document.getElementById('total').textContent = '$' + (subtotal + tax).toFixed(2);
 }
 
 async function placeOrder() {
@@ -69,21 +63,17 @@ async function placeOrder() {
     const name = document.getElementById('custName').value.trim();
     if (!name) { alert('Please enter your name.'); return; }
     if (cart.length === 0) { alert('Your cart is empty!'); return; }
-
     const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    const total = subtotal * 1.15;
-
     const payload = {
         customer_name: name,
         customer_email: document.getElementById('custEmail').value,
         customer_phone: document.getElementById('custPhone').value,
         notes: document.getElementById('custNotes').value,
-        total_amount: total.toFixed(2),
+        total_amount: (subtotal * 1.15).toFixed(2),
         items: cart.map(i => ({ menu_item_id: i.id, quantity: i.qty, unit_price: i.price }))
     };
-
     try {
-        const res = await fetch('/green-coffee-shop/api/orders.php', {
+        const res = await fetch(BASE_URL + '/api/orders.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
