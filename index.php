@@ -1,7 +1,8 @@
 <?php
 $page_title = 'Home';
-require_once 'includes/header.php';
-require_once 'includes/db.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/db.php';
 
 $db = getDB();
 $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_available = 1 LIMIT 4");
@@ -55,9 +56,7 @@ $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_av
 
 <section class="section" style="background:#fff;">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title">Why Green Coffee?</h2>
-        </div>
+        <div class="text-center mb-5"><h2 class="section-title">Why Green Coffee?</h2></div>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="value-card">
@@ -88,12 +87,12 @@ $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_av
     <div class="container text-center text-white">
         <i class="fas fa-robot mb-3" style="font-size:3rem; color: var(--secondary);"></i>
         <h2 style="color:white;">Meet Your AI Barista</h2>
-        <p style="opacity:0.8; max-width:500px; margin:1rem auto 2rem;">Not sure what to order? Ask our AI barista for personalized recommendations based on your taste.</p>
+        <p style="opacity:0.8; max-width:500px; margin:1rem auto 2rem;">Not sure what to order? Ask our AI barista for personalized recommendations.</p>
         <a href="<?php echo BASE_URL; ?>/ai-chat.php" class="btn-primary-custom">Chat Now</a>
     </div>
 </section>
 
 <?php
 $db->close();
-require_once 'includes/footer.php';
+require_once __DIR__ . '/includes/footer.php';
 ?>
