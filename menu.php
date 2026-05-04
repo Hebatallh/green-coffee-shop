@@ -10,12 +10,11 @@ $cat_filter = isset($_GET['cat']) ? $_GET['cat'] : '';
 if ($cat_filter) {
     $stmt = $db->prepare("SELECT m.*, c.name as cat_name FROM menu_items m JOIN categories c ON m.category_id = c.id WHERE c.slug = ? AND m.is_available = 1");
     $stmt->bind_param("s", $cat_filter);
+    $stmt->execute();
+    $items = $stmt->get_result();
 } else {
-    $stmt = $db->prepare("SELECT m.*, c.name as cat_name FROM menu_items m JOIN categories c ON m.category_id = c.id WHERE m.is_available = 1 ORDER BY m.category_id");
-    $stmt->bind_param("");
+    $items = $db->query("SELECT m.*, c.name as cat_name FROM menu_items m JOIN categories c ON m.category_id = c.id WHERE m.is_available = 1 ORDER BY m.category_id");
 }
-$stmt->execute();
-$items = $stmt->get_result();
 ?>
 
 <div class="page-header">
