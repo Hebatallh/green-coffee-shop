@@ -1,6 +1,7 @@
 <?php
 $page_title = 'Cart';
-require_once 'includes/header.php';
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="page-header">
@@ -23,32 +24,21 @@ require_once 'includes/header.php';
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4">
-                <div class="order-summary" id="orderSummary">
+                <div class="order-summary">
                     <h5 class="mb-4">Order Summary</h5>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Subtotal</span><span id="subtotal">$0.00</span>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>Tax (15%)</span><span id="tax">$0.00</span>
-                    </div>
+                    <div class="d-flex justify-content-between mb-2"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+                    <div class="d-flex justify-content-between mb-2"><span>Tax (15%)</span><span id="tax">$0.00</span></div>
                     <hr>
-                    <div class="d-flex justify-content-between mb-4">
-                        <span class="total">Total</span><span class="total" id="total">$0.00</span>
-                    </div>
-
+                    <div class="d-flex justify-content-between mb-4"><span class="total">Total</span><span class="total" id="total">$0.00</span></div>
                     <div id="checkoutForm">
                         <h6 class="mb-3">Your Details</h6>
                         <div class="mb-3"><input type="text" class="form-control" id="custName" placeholder="Full Name *"></div>
                         <div class="mb-3"><input type="email" class="form-control" id="custEmail" placeholder="Email Address"></div>
                         <div class="mb-3"><input type="tel" class="form-control" id="custPhone" placeholder="Phone Number"></div>
                         <div class="mb-3"><textarea class="form-control" id="custNotes" rows="2" placeholder="Special requests..."></textarea></div>
-                        <button class="btn-submit" onclick="placeOrder()">
-                            <i class="fas fa-check me-2"></i>Place Order
-                        </button>
+                        <button class="btn-submit" onclick="placeOrder()"><i class="fas fa-check me-2"></i>Place Order</button>
                     </div>
-
                     <div id="orderSuccess" style="display:none;" class="text-center py-3">
                         <i class="fas fa-check-circle fa-3x mb-3" style="color:var(--primary);"></i>
                         <h5>Order Placed!</h5>
@@ -63,4 +53,4 @@ require_once 'includes/header.php';
 
 <script src="<?php echo BASE_URL; ?>/js/cart.js"></script>
 <script>document.addEventListener('DOMContentLoaded', renderCart);</script>
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
