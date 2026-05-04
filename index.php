@@ -7,7 +7,6 @@ $db = getDB();
 $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_available = 1 LIMIT 4");
 ?>
 
-<!-- Hero Section -->
 <section class="hero">
     <div class="container">
         <div class="row">
@@ -15,15 +14,14 @@ $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_av
                 <h1>Crafted with <em>Intention.</em><br>Poured with Care.</h1>
                 <p class="mt-4 mb-5">Experience the perfect balance of ethically sourced, organic beans roasted to highlight their unique origins.</p>
                 <div class="d-flex gap-3 flex-wrap">
-                    <a href="/green-coffee-shop/menu.php" class="btn-primary-custom">Explore Menu</a>
-                    <a href="/green-coffee-shop/about.php" class="btn-outline-custom">Our Story</a>
+                    <a href="<?php echo BASE_URL; ?>/menu.php" class="btn-primary-custom">Explore Menu</a>
+                    <a href="<?php echo BASE_URL; ?>/about.php" class="btn-outline-custom">Our Story</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Featured Items -->
 <section class="section">
     <div class="container">
         <div class="text-center mb-5">
@@ -50,13 +48,12 @@ $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_av
             <?php endwhile; ?>
         </div>
         <div class="text-center mt-5">
-            <a href="/green-coffee-shop/menu.php" class="btn-primary-custom">View Full Menu</a>
+            <a href="<?php echo BASE_URL; ?>/menu.php" class="btn-primary-custom">View Full Menu</a>
         </div>
     </div>
 </section>
 
-<!-- Values Section -->
-<section class="section" style="background: #fff;">
+<section class="section" style="background:#fff;">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">Why Green Coffee?</h2>
@@ -87,13 +84,12 @@ $featured = $db->query("SELECT * FROM menu_items WHERE is_featured = 1 AND is_av
     </div>
 </section>
 
-<!-- AI Barista Banner -->
 <section class="section" style="background: var(--primary);">
     <div class="container text-center text-white">
         <i class="fas fa-robot mb-3" style="font-size:3rem; color: var(--secondary);"></i>
         <h2 style="color:white;">Meet Your AI Barista</h2>
         <p style="opacity:0.8; max-width:500px; margin:1rem auto 2rem;">Not sure what to order? Ask our AI barista for personalized recommendations based on your taste.</p>
-        <a href="/green-coffee-shop/ai-chat.php" class="btn-primary-custom">Chat Now</a>
+        <a href="<?php echo BASE_URL; ?>/ai-chat.php" class="btn-primary-custom">Chat Now</a>
     </div>
 </section>
 
