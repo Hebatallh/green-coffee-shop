@@ -14,11 +14,11 @@
             <div class="col-md-4">
                 <h6 class="footer-heading">Quick Links</h6>
                 <ul class="footer-links">
-                    <li><a href="/green-coffee-shop/index.php">Home</a></li>
-                    <li><a href="/green-coffee-shop/menu.php">Menu</a></li>
-                    <li><a href="/green-coffee-shop/about.php">Our Story</a></li>
-                    <li><a href="/green-coffee-shop/contact.php">Contact</a></li>
-                    <li><a href="/green-coffee-shop/ai-chat.php">AI Barista</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/index.php">Home</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/menu.php">Menu</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/about.php">Our Story</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/contact.php">Contact</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>/ai-chat.php">AI Barista</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -37,6 +37,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/green-coffee-shop/js/main.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/main.js"></script>
 </body>
 </html>
